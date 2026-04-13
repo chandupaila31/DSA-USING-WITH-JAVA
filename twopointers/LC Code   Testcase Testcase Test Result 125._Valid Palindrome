@@ -1,0 +1,46 @@
+class Solution {
+    public boolean isPalindrome(String s) {
+        
+        // If the string is empty, it is considered a palindrome
+        if(s.isEmpty()){
+            return true;
+        }
+        
+        // Initialize two pointers: one at the beginning and one at the end
+        int i = 0;
+        int j = s.length() - 1;
+        
+        // Traverse the string from both ends towards the center
+        while(i < j){
+            
+            // Get characters at current positions
+            char left = s.charAt(i);
+            char right = s.charAt(j);
+            
+            // Skip non-alphanumeric characters from the left side
+            if(!Character.isLetterOrDigit(left)){
+                i++;
+                continue;
+            }
+            
+            // Skip non-alphanumeric characters from the right side
+            if(!Character.isLetterOrDigit(right)){
+                j--;
+                continue;
+            }
+            
+            // Compare characters ignoring case
+            if(Character.toLowerCase(left) != Character.toLowerCase(right)){
+                // If mismatch found, it is not a palindrome
+                return false;
+            }
+            
+            // Move both pointers towards the center
+            i++;
+            j--;
+        }
+        
+        // If all characters matched, it is a palindrome
+        return true;
+    }
+}
