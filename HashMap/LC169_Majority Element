@@ -1,0 +1,21 @@
+class Solution {
+    public int majorityElement(int[] nums) {
+        //create a empty hashmap
+        Map<Integer,Integer> mp=new HashMap<>();
+        // run a loop from 0 to n-1
+        for(int i=0;i<nums.length;i++){
+            //add element to the map with frequancy 
+            mp.put(nums[i],mp.getOrDefault(nums[i],0)+1);
+        }
+         // run a loop from 0 to n-1
+        for(int i=0;i<nums.length;i++){
+             // Check if the frequency is greater than n/2
+            if(mp.get(nums[i])>nums.length/2){
+                //return majority element
+                return nums[i];
+            }
+        }
+        //no value found
+        return -1;
+    }
+}
