@@ -1,0 +1,19 @@
+class Solution {
+    public boolean containsDuplicate(int[] nums) {
+        //create empty set
+    Set<Integer> st=new HashSet<>();
+    //run a loop from 0 to n-1
+    for(int i=0;i<nums.length;i++){
+        //add unique values to the set
+        st.add(nums[i]);
+    }
+    //if set size is < nums.length
+    if(st.size()<nums.length){
+        //print true 
+        return true;
+    }
+    //print false
+    return false;
+        
+    }
+}
