@@ -1,0 +1,22 @@
+class Solution {
+    public boolean containsNearbyDuplicate(int[] nums, int k) {
+        //creates a empty hashmap
+       Map<Integer,Integer> mp=new HashMap<>();
+       // run a loop from 0 to n-1
+        for(int i=0;i<nums.length;i++){
+           // Check if the element is already present in the map
+            // and the difference between indices is less than or equal to k
+            if(mp.containsKey(nums[i]) && i - mp.get(nums[i]) <= k){
+                // If condition satisfies, return true
+                return true;
+            }
+            
+            // Update the map with the current index of the element
+            mp.put(nums[i], i);
+        }
+        // otherwise print false
+        return false;
+
+        
+    }
+}
